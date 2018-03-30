@@ -20,11 +20,14 @@ import dj.storm.trident.partition.aggregate.SumUpdater;
  */
 @SuppressWarnings("unchecked")
 public class PartitionAggregatorTopology {
-	private static FixedBatchSpout spout = new FixedBatchSpout(new Fields(
-			"sentence"), 3, new Values("the cow jumped over the moon"),
-			new Values("the man went to the store and bought some candy"),
-			new Values("four score and seven years ago"), new Values(
-					"how many apples can you eat"));
+	private static FixedBatchSpout spout = new FixedBatchSpout(
+			  new Fields("sentence")
+			, 3
+			, new Values("the cow jumped over the moon")
+			, new Values("the man went to the store and bought some candy")
+			, new Values("four score and seven years ago")
+			, new Values("how many apples can you eat")
+	);
 
 	public static void main(String[] args) {
 		TridentTopology topology = new TridentTopology();

@@ -22,7 +22,7 @@ public class CountAggregate implements Aggregator<Map<String, Integer>>{
 	}
 	
 	/**
-	 * 在处理batch之前被调用。init的返回值是一个表示聚合状态的对象,该对象会被传递到aggregate和complete方法。
+	 * 在处理batch之前被调用。init的返回值是一个表示聚合状态的对象,该对象会被传递到aggregate和complete方法。对一个batch只执行一次。
 	 * @param batchId 批次Id
 	 * @param collector 发射器
 	 */
@@ -44,6 +44,11 @@ public class CountAggregate implements Aggregator<Map<String, Integer>>{
 	}
 	
 	
+	/**
+	 * 当batch分区的所有元组已经被aggregate方法处理完后被调用。
+	 * @param val 方法init初始化,并且经过aggregate处理之后的值
+	 * @param collector 发射器
+	 */
 	@Override
 	public void complete(Map<String, Integer> val, TridentCollector collector) {
 		for (Entry<String, Integer> entry: val.entrySet()) {
