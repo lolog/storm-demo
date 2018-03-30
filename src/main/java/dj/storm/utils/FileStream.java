@@ -4,8 +4,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
-public class FileStream {
+import java.io.Serializable;
+public class FileStream implements Serializable {
+	private static final long serialVersionUID = 5604205872241620858L;
+	
 	public final static String outputDirectory = "out/";
 	private FileOutputStream stream;
 	
@@ -25,8 +27,8 @@ public class FileStream {
 		}
 	}
 	
-	public void write(String data){
-		data += "\n";
+	public void write(Object out){
+		String data = out + "\n";
 		try {
 			stream.write(data.getBytes());
 		} catch (IOException e) {
