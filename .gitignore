@@ -26,6 +26,7 @@
 # project
 /.idea/
 /target/
+/logs/
 /.settings/
 /.classpath
 .project
