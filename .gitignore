@@ -39,6 +39,7 @@
 /*/.classpath
 /*/.classpath
 /*/.project
+/***/logs/*
 
 # ehcache
 *.lock
